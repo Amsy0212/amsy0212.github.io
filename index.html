@@ -586,16 +586,22 @@
   <!-- typed.js -->
       <!-- bump 1 -->
   <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
-  <script type="text/javascript">
-    var typed = new Typed('.typing',{
-      strings: ["Astronaut", "EVA Specialist", "Mission Ops"],
-      loop: true,
-      typeSpeed: 80,
-      backSpeed: 40
-    });
-  </script>
-
-
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    if (window.Typed) {
+      new Typed('.typing', {
+        strings: ["Astronaut", "EVA Specialist", "Mission Ops"],
+        loop: true,
+        typeSpeed: 80,
+        backSpeed: 40
+      });
+    } else {
+      // запасной вариант, если typed.js не загрузился
+      var el = document.querySelector('.typing');
+      if (el) el.textContent = "Astronaut";
+    }
+  });
+</script>
   <!-- jQuery-->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 
