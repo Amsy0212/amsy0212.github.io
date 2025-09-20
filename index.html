@@ -580,25 +580,33 @@
     <span class="https://www.linkedin.com/in/katia-sumets-51ab4461/</span>
   </p>
 </div>
-    </section>
+     </section>
   </main>
- <script>
-  document.addEventListener('DOMContentLoaded', function () {
+
+  <script>
+(function () {
+  function run() {
     const el = document.querySelector('.typing');
     if (!el) return;
     const words = ["Astronaut", "EVA Specialist", "Mission Ops"];
-    let w = 0, i = 0, dir = 1; // 1 = печатаем, -1 = стираем
-
+    let w = 0, i = 0, dir = 1; // 1=печатаем, -1=стираем
     function tick() {
       el.textContent = words[w].slice(0, i);
-      if (dir === 1 && i < words[w].length) { i++; setTimeout(tick, 100); return; }
-      if (dir === 1) { dir = -1; setTimeout(tick, 1200); return; }
-      if (dir === -1 && i > 0) { i--; setTimeout(tick, 50); return; }
+      if (dir === 1 && i < words[w].length) { i++; return setTimeout(tick, 100); }
+      if (dir === 1) { dir = -1; return setTimeout(tick, 1200); }
+      if (dir === -1 && i > 0) { i--; return setTimeout(tick, 50); }
       dir = 1; w = (w + 1) % words.length; setTimeout(tick, 400);
     }
     tick();
-  });
- </script>
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', run);
+  } else {
+    run();
+  }
+})();
+</script>
+
   <!-- jQuery-->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 
