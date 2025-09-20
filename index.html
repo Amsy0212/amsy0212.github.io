@@ -582,26 +582,23 @@
 </div>
     </section>
   </main>
+ <script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const el = document.querySelector('.typing');
+    if (!el) return;
+    const words = ["Astronaut", "EVA Specialist", "Mission Ops"];
+    let w = 0, i = 0, dir = 1; // 1 = печатаем, -1 = стираем
 
-  <!-- typed.js -->
-      <!-- bump 1 -->
-  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
-  <script>
-   document.addEventListener('DOMContentLoaded', function () {
-    if (window.Typed) {
-      new Typed('.typing', {
-        strings: ["Astronaut", "EVA Specialist", "Mission Ops"],
-        loop: true,
-        typeSpeed: 80,
-        backSpeed: 40
-      });
-    } else {
-      // запасной вариант, если typed.js не загрузился
-      var el = document.querySelector('.typing');
-      if (el) el.textContent = "Astronaut";
+    function tick() {
+      el.textContent = words[w].slice(0, i);
+      if (dir === 1 && i < words[w].length) { i++; setTimeout(tick, 100); return; }
+      if (dir === 1) { dir = -1; setTimeout(tick, 1200); return; }
+      if (dir === -1 && i > 0) { i--; setTimeout(tick, 50); return; }
+      dir = 1; w = (w + 1) % words.length; setTimeout(tick, 400);
     }
+    tick();
   });
-  </script>
+ </script>
   <!-- jQuery-->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 
