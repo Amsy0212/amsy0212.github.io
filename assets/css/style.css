@@ -875,4 +875,41 @@ h3.page-title.white-text.teal{
 #intro{ background: transparent !important; }
 #intro .overlay{ background: linear-gradient(to bottom, rgba(0,0,0,.25), transparent) !important; }
 
+/* === Neon emerald for sidebar === */
+:root{
+  --mint:#18e6b8;        /* неоново-изумрудный */
+  --mint-soft:rgba(24,230,184,.12);
+  --mint-strong:#eafffb; /* светлый для активного/hover */
+}
+
+/* фон сайдбара у тебя уже полупрозрачный — оставляем, правим цвета ссылок/иконок */
+.side-nav li > a,
+.side-nav .subheader{
+  color: var(--mint) !important;
+  font-weight: 500;
+  letter-spacing:.2px;
+}
+
+/* иконки в меню (mdi / material-icons) */
+.side-nav i, .side-nav .material-icons{
+  color: var(--mint) !important;
+  opacity:.95;
+}
+
+/* hover/active — чтобы элемент оставался видимым на тёмном фоне */
+.side-nav li > a:hover,
+.side-nav li.active > a{
+  background: var(--mint-soft) !important;
+  color: var(--mint-strong) !important;
+}
+.side-nav li.active i,
+.side-nav li > a:hover i{
+  color: var(--mint-strong) !important;
+}
+
+/* небольшая подсветка выбранного пункта слева */
+.side-nav li.active > a{
+  box-shadow: inset 3px 0 0 var(--mint);
+}
+
 
