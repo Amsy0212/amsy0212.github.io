@@ -26,3 +26,8 @@ Go to **https://amsy0212.github.io**.
 ```bash
 git clone https://github.com/amsy0212/amsy0212.github.io
 cd amsy0212.github.io
+| OS         | Command               |
+| ---------- | --------------------- |
+| 🍎 macOS   | `open index.html`     |
+| 🪟 Windows | `start index.html`    |
+| 🐧 Linux   | `xdg-open index.html` |
