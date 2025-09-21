@@ -445,59 +445,95 @@
  </section>
   </main>
 <style>
-/* ===== SIDENAV: readable by default + bigger size ===== */
-
-/* ширина и фон меню */
-.side-nav.fixed{
-  width: 260px;                         /* шире, было узко */
-  background: rgba(6, 12, 18, .78);     /* тёмный полупрозрачный + видно на звёздном фоне */
-  backdrop-filter: blur(2px);
+/* ====== Space theme — one override to rule them all ====== */
+:root{
+  --bg:#0b1f2a;                 /* общий фон */
+  --panel:rgba(51,58,68,.88);   /* фон карточек */
+  --fg:#e9f5ff;                 /* основной текст */
+  --muted:#b8c7d6;              /* вторичный текст */
+  --accent:#7ee0ff;             /* ссылки/акценты */
+  --accent2:#ffd7a3;            /* должность/подзаголовки */
 }
 
-/* ссылки в меню (текст + иконки) */
-.side-nav.fixed li > a{
-  display: flex; align-items: center; gap: 10px;
-  color: var(--accent) !important;      /* неоново-изумрудный, как в Contacts */
-  font-size: 18px;                      /* крупнее шрифт */
-  font-weight: 500;
-  letter-spacing: .2px;
-  padding: 14px 20px;
-  opacity: .95;                         /* читаемо даже без ховера */
+/* Фон сайта со звёздами */
+html,body{background:var(--bg); color:var(--fg);}
+body::before{
+  content:"";
+  position:fixed; inset:0; z-index:-2;
+  background:
+    radial-gradient(ellipse at 20% 10%, rgba(255,255,255,.05), transparent 60%),
+    linear-gradient(180deg, rgba(4,10,18,.55), rgba(4,10,18,.0) 30%, rgba(4,10,18,.55)),
+    url(assets/img/bg-space.jpg) center/cover fixed no-repeat;
+  filter:saturate(1.05) brightness(.95);
+}
+/* лёгкая “миллиметровка” поверх — опционально */
+body::after{
+  content:""; position:fixed; inset:0; z-index:-1; pointer-events:none;
+  background-image:
+    linear-gradient(rgba(255,255,255,.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.03) 1px, transparent 1px);
+  background-size:48px 48px;
 }
 
-/* иконки наследуют цвет ссылки */
-.side-nav.fixed li > a i{
-  color: inherit !important;
-  font-size: 22px;
+/* Убираем любые зелёные плашки и фон секций */
+.section, section, main{background:transparent !important;}
+/* Перекрашиваем класс materialize `.teal` в нашу космическую плашку */
+.teal{ background:rgba(23,46,57,.88) !important; }
+.teal-text{ color:var(--accent) !important; }
+
+/* Шапки секций (ABOUT / EXPERIENCE / …) */
+.page-title{
+  background:rgba(23,46,57,.88) !important;
+  color:var(--fg) !important;
+  letter-spacing:.06em;
+  box-shadow:0 4px 14px rgba(0,0,0,.25);
 }
 
-/* hover / активный пункт — ярче */
-.side-nav.fixed li > a:hover,
-.table-of-contents a.active,
-.side-nav.fixed li.active > a{
-  color: #d9feff !important;
-  text-shadow: 0 0 10px rgba(126,224,255,.7);
-  opacity: 1;
+/* Боковое меню */
+#slide-out, .side-nav{ background:rgba(18,25,32,.88) !important; }
+.side-nav li>a{ color:var(--muted) !important; }
+.side-nav li>a:hover, .side-nav li.active>a{
+  color:var(--fg) !important; background:rgba(255,255,255,.05) !important;
+}
+.side-nav i{ color:var(--muted) !important; }
+
+/* Карточки (опыт, статьи, образование) */
+.card{
+  background:var(--panel) !important;
+  border-radius:16px !important;
+  border:1px solid rgba(255,255,255,.05);
+  box-shadow:0 10px 30px rgba(0,0,0,.35) !important;
+}
+.card .card-title{ color:var(--fg) !important; }
+.card .brown-text, .brown-text{ color:var(--muted) !important; }
+
+/* Должность/роль в опыте — делаем светлой и читаемой */
+.role, .role.brown-text, .brown-text.role{
+  color:var(--accent2) !important; font-weight:600;
 }
 
-/* логотип/аватарка — чтобы не сжимались при новой ширине */
-.side-nav.fixed .logo{ padding: 14px 20px 8px; }
-.side-nav.fixed .logo .profile-pic{ width: 120px; height: 120px; }
+/* Пули и мелкий текст внутри карточек */
+.card li{ color:var(--fg); }
 
-/* даём месту контенту при более широком меню */
-@media only screen and (min-width: 993px){
-  main, header, footer{ padding-left: 260px; } /* = ширине .side-nav.fixed */
+/* Ссылки (в т.ч. в «Articles») */
+a{ color:var(--accent); }
+a:hover{ color:#b6f3ff; }
+.card a{
+  color:var(--accent) !important;
+  border-bottom:2px solid rgba(255,255,255,.12);
+  padding-bottom:.08rem;
 }
+.card a:hover{ border-color:var(--accent); }
 
-/* если у ссылок меню остался класс teal-text — перекрашиваем в наш цвет */
-.side-nav.fixed a.teal-text{ color: var(--accent) !important; }
+/* Дата/локация в подвале карточки опыта */
+.card-action, .card-action span{ color:var(--muted) !important; }
 
-/* ===== Section titles: чёрный текст ===== */
-.section .page-title,
-.page-title.white-text{
-  color: #000 !important;               /* чёрный */
-  text-shadow: none !important;
+/* Кнопки и ссылки в hero и contact */
+.intro .btn, .contact .btn{
+  background:rgba(255,255,255,.06); color:var(--fg) !important;
+  border:1px solid rgba(255,255,255,.1);
 }
+.contact a{ color:var(--accent) !important; }
 </style>
 </body>
 </html>
