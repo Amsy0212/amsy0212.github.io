@@ -1,3 +1,4 @@
+
 .profile-pic {
   position: relative;
   max-width:130px;
@@ -698,3 +699,87 @@ small {
 #experience .exp .no-mb{margin-bottom:0}
 #experience ul.tight{margin-top:8px}
 @media (max-width:600px){#experience .card .card-title{font-size:18px}}
+
+/* === Space Theme by Katya === */
+:root{
+  --bg:#0a0f1f;
+  --panel:#0f172a;
+  --panelA:rgba(15,23,42,.72);
+  --text:#e6f1ff;
+  --muted:#93a4bc;
+  --accent:#64ffda;       /* мятный */
+  --accent2:#22d3ee;      /* лазурный */
+  --border:rgba(100,255,218,.12);
+}
+
+/* Body */
+body{
+  color:var(--text);
+  background:
+    linear-gradient(180deg, rgba(2,6,23,.65), rgba(2,6,23,.85)),
+    url("/assets/img/bg-space.jpg") center/cover fixed no-repeat;
+}
+
+/* Left menu */
+.side-nav.fixed{
+  background: rgba(8,14,28,.75);
+  backdrop-filter: blur(6px);
+  border-right: 1px solid var(--border);
+}
+.side-nav.fixed a, .side-nav.fixed i{
+  color: var(--muted) !important;
+}
+.side-nav.fixed a:hover{
+  color: var(--accent) !important;
+}
+
+/* “Headers (About / Experience / …)  */
+h3.page-title{
+  background: linear-gradient(135deg, rgba(100,255,218,.18), rgba(34,211,238,.18));
+  border-left: 4px solid var(--accent);
+  padding: .75rem 1rem;
+  letter-spacing:.03em;
+}
+
+/* Cards */
+.card{
+  background: var(--panelA);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  box-shadow: 0 10px 30px rgba(3,10,24,.35);
+  backdrop-filter: blur(6px);
+}
+.card .card-title,
+.card .teal-text { color: var(--text) !important; }
+.card p, .card li { color: var(--muted); }
+
+/* Buttoms on the mainn */
+.buttons .readme, .buttons .contactme,
+a.readme, a.contactme {
+  display:inline-block;
+  background: transparent;
+  color: var(--text);
+  border:1px solid var(--accent);
+  border-radius: 12px;
+  padding: .7rem 1.2rem;
+  transition: .25s ease;
+}
+.buttons .readme:hover, .buttons .contactme:hover,
+a.readme:hover, a.contactme:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(100,255,218,.18);
+}
+
+/* Links */
+a, .hoverline { color: var(--accent); }
+a:hover, .hoverline:hover { color: var(--accent2); }
+
+/* Markers */
+ul li::marker { color: var(--accent); }
+
+/* Frame and photo */
+.profile-pic{ border:2px solid var(--border); }
+
+/* Amination  */
+.reveal{ opacity:0; transform:translateY(14px) scale(.98); transition:opacity .6s ease, transform .6s ease; }
+.reveal.reveal-in{ opacity:1; transform:none; }
