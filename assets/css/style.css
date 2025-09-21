@@ -911,5 +911,43 @@ h3.page-title.white-text.teal{
 .side-nav li.active > a{
   box-shadow: inset 3px 0 0 var(--mint);
 }
+/* ---------- A) Заголовки секций: текст чёрный ---------- */
+/* у шаблона на заголовках стоит класс white-text — глушим его */
+.section .page-title,
+.page-title.white-text {
+  color: #000 !important;     /* чёрный текст */
+  text-shadow: none !important;
+}
+
+/* ---------- Б) Левое меню: неон изумруд + hover/active ---------- */
+/* базовый цвет ссылок и иконок слева */
+#slide-out li a,
+#nav-mobile li a,
+.side-nav li a,
+.side-nav.fixed li a {
+  color: var(--accent) !important;             /* тот же неон, что в контактах (#7ee0ff) */
+  opacity: .95;
+  transition: color .2s ease, text-shadow .2s ease, background .2s ease, border-left-color .2s ease;
+}
+
+/* иконки в меню (Material Icons / FontAwesome / SVG) */
+#slide-out i, #nav-mobile i,
+.side-nav i, .side-nav .fa, .side-nav svg {
+  color: var(--accent) !important;
+  fill: var(--accent) !important;
+}
+
+/* наведение и активный пункт */
+#slide-out li a:hover,
+#slide-out li.active > a,
+#nav-mobile li a:hover,
+.side-nav li a:hover,
+.side-nav li.active > a {
+  color: #e7fcff !important;                   /* светлее неона */
+  text-shadow: 0 0 6px rgba(126,224,255,.9), 0 0 16px rgba(126,224,255,.55);
+  background: rgba(255,255,255,.06);           /* лёгкая подсветка фона под строкой */
+  border-left: 3px solid var(--accent);        /* тонкий неоновый маркер слева */
+}
+
 
 
