@@ -1,26 +1,37 @@
-# Personal Portfolio ⚡️ 
-> A clean, beautiful, responsive portfolio template for Software Developers!
+# Katya La Bisser — Space Operations Portfolio 🚀
 
-> https://javiferfer.github.io
+Mission ops & EVA specialist — data-driven navigation and habitat safety.  
+**Live site:** https://amsy0212.github.io
 
-[![Maintenance](https://img.shields.io/badge/maintained-yes-green.svg)](https://github.com/javiferfer/javiferfer.github.io/commits/master)
-[![Website shields.io](https://img.shields.io/badge/website-up-yellow)](http://javiferfer.github.io/)
-[![Ask Me Anything !](https://img.shields.io/badge/ask%20me-linkedin-1abc9c.svg)](https://www.linkedin.com/in/javier-fern%C3%A1ndez-fern%C3%A1ndez-b91684b6/)
-[![License](http://img.shields.io/:license-mit-blue.svg?style=flat-square)](http://badges.mit-license.org)
+[![Maintained](https://img.shields.io/badge/maintained-yes-2ecc71.svg)](https://github.com/amsy0212/amsy0212.github.io/commits/master)
+[![Website](https://img.shields.io/badge/website-online-1abc9c.svg)](https://amsy0212.github.io)
+[![Ask Me Anything](https://img.shields.io/badge/ask%20me-LinkedIn-0a66c2.svg)](https://www.linkedin.com/in/katia-sumets-51ab4461/)
+[![License](https://img.shields.io/badge/license-MIT-blue.svg)](./LICENSE)
+
+---
 
 ## Sections 📚
-✔️ About me\
-✔️ Experience\
-✔️ Projects \
-✔️ Skills \
-✔️ Education\
-✔️ Contact Info\
-✔️ Resume
+- ✅ About
+- ✅ Experience
+- ✅ Articles
+- ✅ Education
+- ✅ Contact
+- ✅ Resume (PDF)
 
-To view a live example, **[click here](https://javiferfer.github.io/)**
+---
 
-## License 📄
-This project is licensed under the MIT License - see the [LICENSE.md](./LICENSE) file for details.
+## Preview
+To view the site, go to **https://amsy0212.github.io**.
 
-## Thanks
-Thanks to [varadbhogayata](https://github.com/varadbhogayata), who has made his [portfolio](https://github.com/varadbhogayata/varadbhogayata.github.io) publicly available.
+---
+
+## Quick Start 🛠
+This is a static site (no build step).
+
+```bash
+# clone
+git clone https://github.com/amsy0212/amsy0212.github.io
+cd amsy0212.github.io
+
+# open locally
+open index.html        # or just double-click index.html
