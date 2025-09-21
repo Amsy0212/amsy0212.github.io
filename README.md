@@ -18,19 +18,11 @@ Mission ops & EVA specialist — data-driven navigation and habitat safety.
 ## Preview
 Go to **https://amsy0212.github.io**.
 
-## Quick Start 🛠
-This is a static site (no build step).
+## Quick Start ⚡️
 
+> No build step — this is a static site.
+
+**Clone**
 ```bash
-# clone
 git clone https://github.com/amsy0212/amsy0212.github.io
 cd amsy0212.github.io
-
-# open locally (pick one)
-open index.html       # macOS
-start index.html      # Windows
-xdg-open index.html   # Linux
-
-# or run a tiny local server
-python -m http.server 8000
-# then open http://localhost:8000
