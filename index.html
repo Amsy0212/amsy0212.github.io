@@ -490,12 +490,33 @@ body::after{
 }
 .page-title.white-text{ color:#000 !important; }
 /* Боковое меню */
-#slide-out, .side-nav{ background:rgba(18,25,32,.88) !important; }
-.side-nav li>a{ color:var(--accent) !important; font-weight:500; }
-.side-nav i      { color:var(--accent) !important; opacity:.95; }
-.side-nav li>a:hover, .side-nav li.active>a{
-  color:#fff !important;                    /* наведение/активный */
-  background:rgba(126,224,255,.14) !important;
+/* Sidebar — white */
+#slide-out, .side-nav {                /* фон бокового меню */
+  background:#ffffff !important;
+}
+.side-nav .logo {                      /* верхний блок с аватаром, если нужен белым */
+  background:#ffffff !important;
+}
+
+.side-nav li > a,                      /* неактивные пункты меню */
+.side-nav .subheader {
+  color:#2b2b2b !important;            /* тёмно-серый текст на белом */
+}
+
+.side-nav i, .side-nav .material-icons,/* иконки */
+.side-nav .fa, .side-nav svg {
+  color:#3a3a3a !important;
+  fill:#3a3a3a !important;
+}
+
+.side-nav li > a:hover,                /* hover/active подсветка строки */
+.side-nav li.active > a {
+  background:#f2f6f8 !important;       /* светло-голубой оттенок строки */
+  color:#000 !important;
+}
+
+.side-nav li.active > a {              /* тонкая цветная полоска слева (неон-акцент) */
+  box-shadow: inset 3px 0 0 var(--accent);
 }
 /* Карточки (опыт, статьи, образование) */
 .card{
